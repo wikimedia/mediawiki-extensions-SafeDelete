@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cindy Cicalese"
+		]
+	},
+	"safedelete": "The name of the Special Page for this extension",
+	"safedelete-desc": "{{desc|name=Safe Delete|url=https://www.mediawiki.org/wiki/Extension:Safe_Delete}}",
+	"safedelete-title": "Page title to be displayed on special page; $1 is the name of the page to be deleted",
+	"safedelete-missingpagename": "Displayed when the special page is invoked without the name of the page to be deleted passed as a subpage",
+	"safedelete-missingnamespaces": "Displayed when global $SpecialDeleteNamespaces is not set",
+	"safedelete-cannotdelete": "Displayed before the list of links/redirects preventing deletion; $1 is the name of the page to be deleted",
+}

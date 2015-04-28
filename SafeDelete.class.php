@@ -63,6 +63,74 @@ class SafeDelete extends UnlistedSpecialPage {
 
 		$this->getOutput()->addBacklinkSubtitle( $title );
 
+		if ( isset($GLOBALS['SafeDeleteSemantic']) &&
+			$GLOBALS['SafeDeleteSemantic'] === true ) {
+
+			$result = $this->querySemantic( $title );
+
+		} else {
+
+			$result = $this->queryNonSemantic( $title );
+
+		}
+
+		if ( count( $result ) > 0 ) {
+
+			$this->getOutput()->addHTML(
+				$this->msg( 'safedelete-cannotdelete', $displaytitle ) );
+
+			$this->getOutput()->addHTML( Html::element( 'br' ) );
+			$this->getOutput()->addHTML( Html::openElement( 'ul' ) );
+			foreach ( $result as $row ) {
+				$link = Linker::linkKnown( $row );
+				$element = Xml::tags( 'li', null, "$link" );
+				$this->getOutput()->addHTML( $element );
+			}
+
+			$this->getOutput()->addHTML( Html::closeElement( 'ul' ) );
+
+		} else {
+
+			$this->getOutput()->redirect(
+				$title->getLocalURL( 'action=delete' ) );
+
+		}
+
+	}
+
+	private function querySemantic( $title ) {
+
+		$thispage = SMWDIWikiPage::newFromTitle( $title );
+
+		$store = \SMW\StoreFactory::getStore();
+
+		$properties = $store->getInProperties( $thispage );
+
+		$result = array();
+
+		foreach ( $properties as $property ) {
+			$subjects = $store->getPropertySubjects( $property, $thispage );
+			foreach ( $subjects as $page ) {
+
+				// links from subobjects are treated as links from the
+				// containing page
+				$namespace = $page->getNamespace();
+				$text = $page->getDBkey();
+				$pagetitle = Title::makeTitle( $namespace, $text );
+
+				$pagename = $pagetitle->getPrefixedText();
+				if ( ! $title->equals( $pagetitle ) &&
+					! array_key_exists( $pagename, $result ) ) {
+					$result[$pagename] = $pagetitle;
+				}
+			}
+		}
+
+		return $result;
+	}
+
+	public function queryNonSemantic ( $title ) {
+
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$queryLimit = 1000;
@@ -115,30 +183,14 @@ class SafeDelete extends UnlistedSpecialPage {
 
 		$rows = $dbr->query( $sql );
 
-		if ( $rows->numRows() > 0 ) {
+		$result = array();
 
-			$this->getOutput()->addHTML(
-				$this->msg( 'safedelete-cannotdelete', $displaytitle ) );
-
-			$this->getOutput()->addHTML( Html::element( 'br' ) );
-			$this->getOutput()->addHTML( Html::openElement( 'ul' ) );
-			foreach ( $rows as $row ) {
-				$nt = Title::makeTitle( $row->page_namespace,
-					$row->page_title );
-				$link = Linker::linkKnown( $nt );
-				$element = Xml::tags( 'li', null, "$link" );
-				$this->getOutput()->addHTML( $element );
-			}
-
-			$this->getOutput()->addHTML( Html::closeElement( 'ul' ) );
-
-		} else {
-
-			$this->getOutput()->redirect(
-				$title->getLocalURL( 'action=delete' ) );
-
+		foreach ( $rows as $row ) {
+			$result[] = Title::makeTitle( $row->page_namespace,
+				$row->page_title );
 		}
 
+		return $result;
 	}
 
 	public static function checkLink( SkinTemplate &$sktemplate,

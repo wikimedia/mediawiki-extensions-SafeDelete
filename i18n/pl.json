@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chrumps"
+		]
+	},
+	"safedelete-desc": "Usuń stronę tylko wtedy, gdy nie ma strony w określonej przestrzeni nazw linkującej do niej",
+	"safedelete-title": "Usuwanie „$1”",
+	"safedelete-missingpagename": "Brakuje nazwy strony."
+}

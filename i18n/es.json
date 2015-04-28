@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Macofe"
+		]
+	},
+	"safedelete-title": "Borrar «$1»",
+	"safedelete-missingpagename": "Falta el nombre de la página."
+}

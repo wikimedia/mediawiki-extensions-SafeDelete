@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aram1985"
+		]
+	},
+	"safedelete": "Պահպանել ջնջումից",
+	"safedelete-title": "Ջնջել \"$1\"",
+	"safedelete-missingpagename": "Էջի անվանումը բացակայում է:"
+}

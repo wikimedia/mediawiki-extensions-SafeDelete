@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chrumps"
+			"Chrumps",
+			"Devwebtel"
 		]
 	},
+	"safedelete": "Bezpieczne Usuwanie",
 	"safedelete-desc": "Usuń stronę tylko wtedy, gdy nie ma strony w określonej przestrzeni nazw linkującej do niej",
 	"safedelete-title": "Usuwanie „$1”",
-	"safedelete-missingpagename": "Brakuje nazwy strony."
+	"safedelete-missingpagename": "Brakuje nazwy strony.",
+	"safedelete-missingnamespaces": "Lista Specialnie Usuwanych przestrzeni nazw nie jest ustalona."
 }

@@ -9,5 +9,6 @@
 	"safedelete-desc": "Usuń stronę tylko wtedy, gdy nie ma strony w określonej przestrzeni nazw linkującej do niej",
 	"safedelete-title": "Usuwanie „$1”",
 	"safedelete-missingpagename": "Brakuje nazwy strony.",
-	"safedelete-missingnamespaces": "Lista Specialnie Usuwanych przestrzeni nazw nie jest ustalona."
+	"safedelete-missingnamespaces": "Lista Specialnie Usuwanych przestrzeni nazw nie jest ustalona.",
+	"safedelete-cannotdelete": "Strony „$1” nie można usunąć, ponieważ istnieją do niej linki lub przekierowania z następujących stron:"
 }

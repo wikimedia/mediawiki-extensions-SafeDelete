@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Jopparn"
 		]
 	},
-	"safedelete-title": "Radera \"$1\""
+	"safedelete": "Säker radering",
+	"safedelete-title": "Radera \"$1\"",
+	"safedelete-missingpagename": "Sidnamn saknas."
 }

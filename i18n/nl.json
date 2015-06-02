@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Esketti"
 		]
 	},
-	"safedelete-title": "\"$1\" verwijderen"
+	"safedelete": "Veilig Verwijderen",
+	"safedelete-desc": "Verwijderen pagina alleen als er geen pagina ' s in de aangegeven naamruimten koppelen",
+	"safedelete-title": "\"$1\" verwijderen",
+	"safedelete-missingpagename": "Paginanaam ontbreekt.",
+	"safedelete-missingnamespaces": "Lijst van Speciale Verwijderen naamruimten is niet ingesteld.",
+	"safedelete-cannotdelete": "Pagina \"$1\" kan niet verwijderd worden omdat er links of doorverwijst naar een van de volgende pagina ' s:"
 }

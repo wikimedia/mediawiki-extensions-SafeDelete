@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Macofe",
-			"Wladek92"
+			"Wladek92",
+			"Gomoko"
 		]
 	},
 	"safedelete": "Supression sécurisée",
+	"safedelete-desc": "Supprimer la page uniquement s’il n’y a pas de page y faisant référence dans les espaces de nom spécifiés",
 	"safedelete-title": "Supprimer « $1 »",
 	"safedelete-missingpagename": "Le nom de page est absent.",
 	"safedelete-missingnamespaces": "La liste des espaces de noms de la supression spéciale n'est pas définie.",

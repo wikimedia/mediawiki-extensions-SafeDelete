@@ -74,10 +74,10 @@ class SafeDelete extends UnlistedSpecialPage {
 
 		}
 
-		if ( count( $result ) > 0 ) {
-
+		$count = count( $result ) ;
+		if ( $count > 0 ) {
 			$this->getOutput()->addHTML(
-				$this->msg( 'safedelete-cannotdelete', $displaytitle ) );
+				$this->msg( 'safedelete-cannotdelete', $displaytitle )->numParams( $count ) );
 
 			$this->getOutput()->addHTML( Html::element( 'br' ) );
 			$this->getOutput()->addHTML( Html::openElement( 'ul' ) );

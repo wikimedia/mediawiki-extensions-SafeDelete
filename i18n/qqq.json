@@ -4,5 +4,6 @@
 			"Liuxinyu970226"
 		]
 	},
-	"safedelete-title": "{{Identical|Delete}}"
+	"safedelete-title": "{{Identical|Delete}}",
+	"safedelete-cannotdelete": "$1 - a page title, $2 - the number of list items following this message for PLURAL use."
 }

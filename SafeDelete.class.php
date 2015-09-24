@@ -53,7 +53,7 @@ class SafeDelete extends UnlistedSpecialPage {
 		$title = Title::newFromURL( $par );
 		$this->getSkin()->setRelevantTitle( $title );
 
-		if ( class_exists ("SemanticTitle" ) ) {
+		if ( class_exists( "SemanticTitle" ) ) {
 			$displaytitle = SemanticTitle::getText( $title );
 		} else {
 			$displaytitle = $title->getPrefixedText();
@@ -63,12 +63,27 @@ class SafeDelete extends UnlistedSpecialPage {
 
 		$this->getOutput()->addBacklinkSubtitle( $title );
 
-		if ( isset($GLOBALS['SafeDeleteSemantic']) &&
-			$GLOBALS['SafeDeleteSemantic'] === true ) {
+		$done = false;
+
+		$result = array();
+
+		if ( isset( $GLOBALS['SafeDeleteSemantic'] ) &&
+			$GLOBALS['SafeDeleteSemantic'] ) {
 
 			$result = $this->querySemantic( $title );
+			$done = true;
+		}
 
-		} else {
+		if ( isset( $GLOBALS['SafeDeleteCargo'] ) &&
+			is_array( $GLOBALS['SafeDeleteCargo'] ) &&
+			count( $GLOBALS['SafeDeleteCargo'] ) > 0 ) {
+
+			$result = array_merge( $result,
+				$this->queryCargo( $title, $GLOBALS['SafeDeleteCargo'] ) );
+			$done = true;
+		}
+
+		if ( !$done ) {
 
 			$result = $this->queryNonSemantic( $title );
 
@@ -122,6 +137,39 @@ class SafeDelete extends UnlistedSpecialPage {
 				if ( ! $title->equals( $pagetitle ) &&
 					! array_key_exists( $pagename, $result ) ) {
 					$result[$pagename] = $pagetitle;
+				}
+			}
+		}
+
+		return $result;
+	}
+
+	private function queryCargo( $title, $cargo_fields ) {
+
+		$targetpage = $title->getPrefixedText();
+
+		$result = array();
+
+		foreach ( $cargo_fields as $field ) {
+
+			if ( isset( $field[2] ) && $field[2] == true ) {
+				$operator = ' HOLDS ';
+			} else {
+				$operator = ' = ';
+			}
+
+			$query = CargoSQLQuery::newFromValues( $field[0], '_pageName',
+				$field[1] . $operator .'"' . $targetpage . '"', null,
+				'_pageName', null, null, '' );
+			$rows = $query->run();
+
+			foreach ( $rows as $row ) {
+
+				$sourcepage = $row['_pageName'];
+
+				if ( ( $sourcepage != $targetpage ) &&
+					! array_key_exists( $targetpage, $result ) ) {
+					$result[$sourcepage] = Title::newFromText( $sourcepage );
 				}
 			}
 		}

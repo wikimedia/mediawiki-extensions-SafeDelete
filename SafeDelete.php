@@ -27,7 +27,7 @@ if( !defined( 'MEDIAWIKI' ) ) die( "This is an extension to the MediaWiki
 
 $wgExtensionCredits['special'][] = array (
 	'name' => 'Safe Delete',
-	'version' => '1.1',
+	'version' => '1.2',
 	'author' => '[https://www.mediawiki.org/wiki/User:Cindy.cicalese Cindy Cicalese]',
 	'descriptionmsg' => 'safedelete-desc',
 	'path' => __FILE__,

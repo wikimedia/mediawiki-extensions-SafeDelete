@@ -9,5 +9,5 @@
 	"safedelete-title": "„$1“ löschen",
 	"safedelete-missingpagename": "Der Seitenname fehlt.",
 	"safedelete-missingnamespaces": "Eine Liste der Namensräume ist nicht festgelegt.",
-	"safedelete-cannotdelete": "Die Seite „$1“ kann nicht gelöscht werden, da Links oder Weiterleitungen von den folgenden Seiten vorhanden sind:"
+	"safedelete-cannotdelete": "Die Seite „$1“ kann nicht gelöscht werden, da Links oder Weiterleitungen von {{PLURAL:$2|der folgenden Seite|den folgenden Seiten}} vorhanden sind:"
 }

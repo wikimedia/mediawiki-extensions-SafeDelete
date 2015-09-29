@@ -3,7 +3,8 @@
 		"authors": [
 			"Macofe",
 			"Wladek92",
-			"Gomoko"
+			"Gomoko",
+			"TomT0m"
 		]
 	},
 	"safedelete": "Supression sécurisée",
@@ -11,5 +12,5 @@
 	"safedelete-title": "Supprimer « $1 »",
 	"safedelete-missingpagename": "Le nom de page est absent.",
 	"safedelete-missingnamespaces": "La liste des espaces de noms de la supression spéciale n'est pas définie.",
-	"safedelete-cannotdelete": "La page \"$1\" ne peut pas être supprimée car elle est utilisée par des liens ou des redirections depuis les pages suivantes:"
+	"safedelete-cannotdelete": "La page \"$1\" ne peut pas être supprimée car elle est utilisée par des liens ou des redirections depuis {{PLURAL:$2|la page suivante|les pages suivantes}}:"
 }

@@ -50,7 +50,7 @@ class SafeDelete extends UnlistedSpecialPage {
 			return;
 		}
 
-		$title = Title::newFromURL( $par );
+		$title = Title::newFromText( $par );
 		$this->getSkin()->setRelevantTitle( $title );
 
 		if ( class_exists( "SemanticTitle" ) ) {

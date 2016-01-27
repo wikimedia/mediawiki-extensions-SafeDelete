@@ -5,7 +5,7 @@
 			"Esketti"
 		]
 	},
-	"safedelete": "Veilig Verwijderen",
+	"safedelete": "Veilig verwijderen",
 	"safedelete-desc": "Verwijderen pagina alleen als er geen pagina ' s in de aangegeven naamruimten koppelen",
 	"safedelete-title": "\"$1\" verwijderen",
 	"safedelete-missingpagename": "Paginanaam ontbreekt.",

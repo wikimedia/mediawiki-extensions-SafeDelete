@@ -11,5 +11,5 @@
 	"safedelete-title": "\"$1\" verwijderen",
 	"safedelete-missingpagename": "Paginanaam ontbreekt.",
 	"safedelete-missingnamespaces": "Lijst van Speciale Verwijderen naamruimten is niet ingesteld.",
-	"safedelete-cannotdelete": "Pagina \"$1\" kan niet verwijderd worden omdat er links of doorverwijst naar een van de volgende pagina ' s:"
+	"safedelete-cannotdelete": "Pagina \"$1\" kan niet verwijderd worden omdat er naar gekoppeld of doorverwezen wordt vanaf een va de volgende {{PLURAL:$2|pagina|pagina's}}:"
 }

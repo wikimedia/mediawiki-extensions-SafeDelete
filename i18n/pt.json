@@ -6,7 +6,7 @@
 		]
 	},
 	"safedelete": "Eliminação segura",
-	"safedelete-desc": "Eliminar a página só se não existirem páginas nos espaços nominais especificados que contenham <i>links</i> para ela",
+	"safedelete-desc": "Eliminar a página só se não existirem páginas nos espaços nominais especificados que contenham hiperligações para ela",
 	"safedelete-title": "Eliminar \"$1\"",
 	"safedelete-missingpagename": "Falta o nome da página.",
 	"safedelete-missingnamespaces": "A lista dos espaços nominais para a eliminação segura não está definida.",

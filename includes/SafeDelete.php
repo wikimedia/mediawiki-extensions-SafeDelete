@@ -22,14 +22,18 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+use MediaWiki\MediaWikiServices;
+
 class SafeDelete extends UnlistedSpecialPage {
 
 	public function __construct() {
 		parent::__construct( 'SafeDelete' );
 	}
 
-	function execute( $par ) {
-
+	/**
+	 * @inheritDoc
+	 */
+	public function execute( $par ) {
 		$this->setHeaders();
 		$this->outputHeader();
 
@@ -65,7 +69,7 @@ class SafeDelete extends UnlistedSpecialPage {
 
 		$done = false;
 
-		$result = array();
+		$result = [];
 
 		if ( isset( $GLOBALS['SafeDeleteSemantic'] ) &&
 			$GLOBALS['SafeDeleteSemantic'] ) {
@@ -89,7 +93,7 @@ class SafeDelete extends UnlistedSpecialPage {
 
 		}
 
-		$count = count( $result ) ;
+		$count = count( $result );
 		if ( $count > 0 ) {
 			$this->getOutput()->addHTML(
 				$this->msg( 'safedelete-cannotdelete', $displaytitle )->numParams( $count ) );
@@ -97,7 +101,8 @@ class SafeDelete extends UnlistedSpecialPage {
 			$this->getOutput()->addHTML( Html::element( 'br' ) );
 			$this->getOutput()->addHTML( Html::openElement( 'ul' ) );
 			foreach ( $result as $row ) {
-				$link = Linker::linkKnown( $row );
+				$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+				$link = $linkRenderer->makeLink( $row );
 				$element = Xml::tags( 'li', null, "$link" );
 				$this->getOutput()->addHTML( $element );
 			}
@@ -110,18 +115,16 @@ class SafeDelete extends UnlistedSpecialPage {
 				$title->getLocalURL( 'action=delete' ) );
 
 		}
-
 	}
 
 	private function querySemantic( $title ) {
-
 		$thispage = SMWDIWikiPage::newFromTitle( $title );
 
 		$store = \SMW\StoreFactory::getStore();
 
 		$properties = $store->getInProperties( $thispage );
 
-		$result = array();
+		$result = [];
 
 		foreach ( $properties as $property ) {
 			$subjects = $store->getPropertySubjects( $property, $thispage );
@@ -145,10 +148,9 @@ class SafeDelete extends UnlistedSpecialPage {
 	}
 
 	private function queryCargo( $title, $cargo_fields ) {
-
 		$targetpage = $title->getPrefixedText();
 
-		$result = array();
+		$result = [];
 
 		foreach ( $cargo_fields as $field ) {
 
@@ -177,61 +179,62 @@ class SafeDelete extends UnlistedSpecialPage {
 		return $result;
 	}
 
-	public function queryNonSemantic ( $title ) {
-
-		$dbr = wfGetDB( DB_SLAVE );
+	private function queryNonSemantic( $title ) {
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$queryLimit = 1000;
 
 		$sql1 = $dbr->selectSQLText(
-			array(
+			[
 				'pagelinks',
 				'page'
-			),
-			array(
+			],
+			[
 				'page_namespace',
 				'page_title'
-			),
-			array(
+			],
+			[
 				'pl_namespace' => $title->getNamespace(),
 				'pl_title' => $title->getText(),
 				'page_namespace' => $GLOBALS['SafeDeleteNamespaces'],
 				'pl_from=page_id'
-			),
+			],
 			__METHOD__,
-			array(
+			[
 				'DISTINCT',
 				'LIMIT' => $queryLimit
-			)
+			]
 		);
 
 		$sql2 = $dbr->selectSQLText(
-			array(
+			[
 				'redirect',
 				'page'
-			),
-			array(
+			],
+			[
 				'page_namespace',
 				'page_title'
-			),
-			array(
+			],
+			[
 				'rd_namespace' => $title->getNamespace(),
 				'rd_title' => $title->getText(),
 				'page_namespace' => $GLOBALS['SafeDeleteNamespaces'],
 				'rd_from=page_id'
-			),
+			],
 			__METHOD__,
-			array(
+			[
 				'DISTINCT',
 				'LIMIT' => $queryLimit
-			)
+			]
 		);
 
-		$sql = $dbr->unionQueries( array( $sql1, $sql2 ), false );
+		$sql = $dbr->unionQueries( [ $sql1, $sql2 ], false );
 
+		// @codingStandardsIgnoreStart
 		$rows = $dbr->query( $sql );
+		// @codingStandardsIgnoreEnd
 
-		$result = array();
+		$result = [];
 
 		foreach ( $rows as $row ) {
 			$result[] = Title::makeTitle( $row->page_namespace,
@@ -241,9 +244,12 @@ class SafeDelete extends UnlistedSpecialPage {
 		return $result;
 	}
 
+	/**
+	 * @param SkinTemplate &$sktemplate
+	 * @param array &$links
+	 */
 	public static function checkLink( SkinTemplate &$sktemplate,
 		array &$links ) {
-
 		if ( isset( $GLOBALS['SafeDeleteNamespaces'] ) &&
 			isset( $links['actions']['delete'] ) ) {
 
@@ -255,8 +261,7 @@ class SafeDelete extends UnlistedSpecialPage {
 
 				unset( $links['actions']['delete'] );
 
-			} elseif
-				( $title->inNamespaces( $GLOBALS['SafeDeleteNamespaces'] ) ) {
+			} elseif ( $title->inNamespaces( $GLOBALS['SafeDeleteNamespaces'] ) ) {
 
 				$links['actions']['delete']['href'] =
 					SpecialPage::getTitleFor( 'SafeDelete', $pagename )->
@@ -264,8 +269,5 @@ class SafeDelete extends UnlistedSpecialPage {
 			}
 
 		}
-
-		return true;
-
 	}
 }

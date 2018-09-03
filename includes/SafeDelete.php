@@ -161,7 +161,7 @@ class SafeDelete extends UnlistedSpecialPage {
 			}
 
 			$query = CargoSQLQuery::newFromValues( $field[0], '_pageName',
-				$field[1] . $operator .'"' . $targetpage . '"', null,
+				$field[1] . $operator . '"' . $targetpage . '"', null,
 				'_pageName', null, null, '' );
 			$rows = $query->run();
 

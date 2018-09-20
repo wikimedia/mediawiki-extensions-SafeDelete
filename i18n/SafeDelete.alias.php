@@ -21,11 +21,10 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-// @codingStandardsIgnoreFile
 
-$specialPageAliases = array();
+$specialPageAliases = [];
 
 /** English (English) */
-$specialPageAliases['en'] = array(
-	'SafeDelete' => array( 'SafeDelete', 'Safe Delete' ),
-);
+$specialPageAliases['en'] = [
+	'SafeDelete' => [ 'SafeDelete', 'Safe Delete' ],
+];

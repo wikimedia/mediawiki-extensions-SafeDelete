@@ -137,8 +137,8 @@ class SafeDelete extends UnlistedSpecialPage {
 				$pagetitle = Title::makeTitle( $namespace, $text );
 
 				$pagename = $pagetitle->getPrefixedText();
-				if ( ! $title->equals( $pagetitle ) &&
-					! array_key_exists( $pagename, $result ) ) {
+				if ( !$title->equals( $pagetitle ) &&
+					!array_key_exists( $pagename, $result ) ) {
 					$result[$pagename] = $pagetitle;
 				}
 			}
@@ -170,7 +170,7 @@ class SafeDelete extends UnlistedSpecialPage {
 				$sourcepage = $row['_pageName'];
 
 				if ( ( $sourcepage != $targetpage ) &&
-					! array_key_exists( $targetpage, $result ) ) {
+					!array_key_exists( $targetpage, $result ) ) {
 					$result[$sourcepage] = Title::newFromText( $sourcepage );
 				}
 			}

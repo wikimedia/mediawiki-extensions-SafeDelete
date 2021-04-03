@@ -230,9 +230,8 @@ class SafeDelete extends UnlistedSpecialPage {
 
 		$sql = $dbr->unionQueries( [ $sql1, $sql2 ], false );
 
-		// @codingStandardsIgnoreStart
+		// phpcs:ignore MediaWiki.Usage.DbrQueryUsage.DbrQueryFound
 		$rows = $dbr->query( $sql );
-		// @codingStandardsIgnoreEnd
 
 		$result = [];
 

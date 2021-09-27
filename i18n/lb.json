@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Soued031"
 		]
 	},
 	"safedelete": "Sécher Läschen",
-	"safedelete-desc": "Säit nëmme läsche wa keng Säiten an de spezifizéierten Nummräim drop linken",
+	"safedelete-desc": "Säit nëmme läsche wa keng Säiten an de spezifizéierten Nummraim drop linken",
 	"safedelete-title": "\"$1\" läschen",
 	"safedelete-missingpagename": "Numm vun der Säit feelt.",
-	"safedelete-missingnamespaces": "Eng Lëscht vun den Nummräim ass net festgeluecht.",
+	"safedelete-missingnamespaces": "Eng Lëscht vun den Nummraim ass net festgeluecht.",
 	"safedelete-cannotdelete": "D'Säit \"$1\" kann net geläscht ginn well et Linken oder Viruleedungen dorop gëtt vun  {{PLURAL:$2|dëser Säit|dëse Säiten}}:"
 }

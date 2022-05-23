@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ex-Diktator"
+		]
+	},
+	"safedelete": "מחיקה בטוחה",
+	"safedelete-desc": "מחיקת דף רק אם אין דפים במרחבי שם מסוימים שמקשרים אליו",
+	"safedelete-title": "מחיקת \"$1\"",
+	"safedelete-missingpagename": "שם הדף חסר.",
+	"safedelete-missingnamespaces": "רשימת מרחבי שם מיוחדים למחיקה אינו מוגדר.",
+	"safedelete-cannotdelete": "לא ניתן למחוק את הדף \"$1\" מכיוון שיש אליו קישורים או הפניות {{PLURAL:$2|מהדף הבא|מהדפים הבאים}}:"
+}

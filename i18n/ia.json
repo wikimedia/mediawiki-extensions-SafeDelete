@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"safedelete": "Deletion secur",
+	"safedelete-desc": "Deler le pagina solmente si il non ha paginas in le spatio de nomines specificate que liga verso illo",
+	"safedelete-title": "Deler \"$1\"",
+	"safedelete-missingpagename": "Le nomine del pagina manca.",
+	"safedelete-missingnamespaces": "Le lista de spatio de nomines de Deletion Special non es definite.",
+	"safedelete-cannotdelete": "Le pagina \"$1\" non pote esser delite perque existe ligamines o redirectiones a illo sur le sequente pagina{{PLURAL:$2||s}}:"
+}

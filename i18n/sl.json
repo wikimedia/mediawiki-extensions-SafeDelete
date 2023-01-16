@@ -4,5 +4,10 @@
 			"Eleassar"
 		]
 	},
-	"safedelete-title": "Izbriši »$1«"
+	"safedelete": "Varen izbris",
+	"safedelete-desc": "Stran izbriši samo, če v predloženih imenskih prostorih ni nobene strani, ki bi se nanjo povezovala",
+	"safedelete-title": "Izbriši »$1«",
+	"safedelete-missingpagename": "Manjka ime strani.",
+	"safedelete-missingnamespaces": "Seznam imenskih prostorov posebnega brisanja ni nastavljen.",
+	"safedelete-cannotdelete": "Strani »$1« ni mogoče izbrisati, ker nanjo kažejo povezave ali preusmeritve s {{PLURAL:$2| strani}}:"
 }

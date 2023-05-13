@@ -6,7 +6,7 @@
 	"descriptionmsg": "safedelete-desc",
 	"type": "special",
 	"requires": {
-		"MediaWiki": ">= 1.29.0"
+		"MediaWiki": ">= 1.35.0"
 	},
 	"SpecialPages": {
 		"SafeDelete": "SafeDelete"
@@ -23,7 +23,7 @@
 		"SafeDelete": "includes/SafeDelete.php"
 	},
 	"Hooks": {
-		"SkinTemplateNavigation": "SafeDelete::checkLink"
+		"SkinTemplateNavigation::Universal": "SafeDelete::checkLink"
 	},
 	"manifest_version": 2
 }

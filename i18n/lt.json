@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"safedelete": "Saugus trynimas",
+	"safedelete-desc": "Ištrinkite puslapį tik tuo atveju, jei nurodytose vardų srityse nėra puslapių, nukreipiančių į jį",
+	"safedelete-title": "Ištrinti „$1“",
+	"safedelete-missingpagename": "Trūksta puslapio pavadinimo.",
+	"safedelete-missingnamespaces": "Specialių ištrynimų vardų sričių sąrašas nenustatytas.",
+	"safedelete-cannotdelete": "Puslapio „$1“ ištrinti negalima, nes yra nuorodų arba peradresavimų į jį iš {{PLURAL:$2|šio puslapio|šių puslapių}}:"
+}

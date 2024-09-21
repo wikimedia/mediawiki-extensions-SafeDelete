@@ -180,7 +180,7 @@ class SafeDelete extends UnlistedSpecialPage {
 	}
 
 	private function queryNonSemantic( $title ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 
 		$queryLimit = 1000;
 

@@ -184,54 +184,36 @@ class SafeDelete extends UnlistedSpecialPage {
 
 		$queryLimit = 1000;
 
-		$sql1 = $dbr->selectSQLText(
-			[
-				'pagelinks',
-				'page'
-			],
-			[
-				'page_namespace',
-				'page_title'
-			],
-			[
+		$sql1 = $dbr->newSelectQueryBuilder()
+			->select( [ 'page_namespace', 'page_title' ] )
+			->from( 'pagelinks' )
+			->join( 'page', null, 'pl_from = page_id' )
+			->where( [
 				'pl_namespace' => $title->getNamespace(),
 				'pl_title' => $title->getText(),
 				'page_namespace' => $GLOBALS['SafeDeleteNamespaces'],
-				'pl_from=page_id'
-			],
-			__METHOD__,
-			[
-				'DISTINCT',
-				'LIMIT' => $queryLimit
-			]
-		);
+			] )
+			->distinct()
+			->limit( $queryLimit )
+			->caller( __METHOD__ );
 
-		$sql2 = $dbr->selectSQLText(
-			[
-				'redirect',
-				'page'
-			],
-			[
-				'page_namespace',
-				'page_title'
-			],
-			[
+		$sql2 = $dbr->newSelectQueryBuilder()
+			->select( [ 'page_namespace', 'page_title' ] )
+			->from( 'redirect' )
+			->join( 'page', null, 'rd_from = page_id' )
+			->where( [
 				'rd_namespace' => $title->getNamespace(),
 				'rd_title' => $title->getText(),
 				'page_namespace' => $GLOBALS['SafeDeleteNamespaces'],
-				'rd_from=page_id'
-			],
-			__METHOD__,
-			[
-				'DISTINCT',
-				'LIMIT' => $queryLimit
-			]
-		);
+			] )
+			->distinct()
+			->limit( $queryLimit )
+			->caller( __METHOD__ );
 
-		$sql = $dbr->unionQueries( [ $sql1, $sql2 ], false );
-
-		// phpcs:ignore MediaWiki.Usage.DbrQueryUsage.DbrQueryFound
-		$rows = $dbr->query( $sql );
+		$rows = $dbr->newUnionQueryBuilder()
+			->add( $sql1 )
+			->add( $sql2 )
+			->fetchResultSet();
 
 		$result = [];
 

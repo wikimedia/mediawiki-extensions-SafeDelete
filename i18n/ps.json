@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
-	"safedelete-title": "\"$1\" ړنگول"
+	"safedelete": "خوندي ړنگول",
+	"safedelete-desc": "يوازې هغه وخت يو مخ ړنگ کړئ چې په ټاکل شويو نوم‌ځايونو کې ورسره هيڅ مخ وېبتړنه ونهٔ لري",
+	"safedelete-title": "\"$1\" ړنگول",
+	"safedelete-missingpagename": "مخ نوم نشته.",
+	"safedelete-missingnamespaces": "د ځانگړو ړنگ شويو نوم‌ځايونو لړليک نه دی اوڼل شوی.",
+	"safedelete-cannotdelete": "\"$1\" مخ نهٔ شي ړنگېدای ځکه چې له لاندې {{PLURAL\n:$2|مخ|مخونو}} ورته وېبتړنې يا مخگرځونې شوي:"
 }

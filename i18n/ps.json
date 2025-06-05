@@ -10,5 +10,5 @@
 	"safedelete-title": "\"$1\" ړنگول",
 	"safedelete-missingpagename": "مخ نوم نشته.",
 	"safedelete-missingnamespaces": "د ځانگړو ړنگ شويو نوم‌ځايونو لړليک نه دی اوڼل شوی.",
-	"safedelete-cannotdelete": "\"$1\" مخ نهٔ شي ړنگېدای ځکه چې له لاندې {{PLURAL\n:$2|مخ|مخونو}} ورته وېبتړنې يا مخگرځونې شوي:"
+	"safedelete-cannotdelete": "\"$1\" مخ نهٔ شي ړنگېدای ځکه چې له لاندې {{PLURAL:$2|مخ|مخونو}} ورته وېبتړنې يا مخگرځونې شوي:"
 }

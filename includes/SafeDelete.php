@@ -22,7 +22,9 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 class SafeDelete extends UnlistedSpecialPage {
 

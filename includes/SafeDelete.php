@@ -63,7 +63,7 @@ class SafeDelete extends UnlistedSpecialPage {
 			$displaytitle = $title->getPrefixedText();
 		}
 		$this->getOutput()->setPageTitle( $this->msg( 'safedelete-title',
-			$displaytitle ) );
+			$displaytitle )->escaped() );
 
 		$this->getOutput()->addBacklinkSubtitle( $title );
 

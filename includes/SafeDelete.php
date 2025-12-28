@@ -105,7 +105,7 @@ class SafeDelete extends UnlistedSpecialPage {
 			foreach ( $result as $row ) {
 				$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 				$link = $linkRenderer->makeLink( $row );
-				$element = Xml::tags( 'li', null, "$link" );
+				$element = Html::rawElement( 'li', [], "$link" );
 				$this->getOutput()->addHTML( $element );
 			}
 

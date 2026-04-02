@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Aca"
 		]
 	},
 	"safedelete-title": "Brisanje \"$1\"",
-	"safedelete-missingnamespaces": "Spisak imenskih prostora nije zadan."
+	"safedelete-missingnamespaces": "Lista imenskih prostora nije zadana."
 }

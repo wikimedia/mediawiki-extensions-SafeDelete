@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"safedelete": "Bezpečné zmazanie",
+	"safedelete-desc": "Zmaže stránku, len ak na ňu neodkazujú žiadne stránky zo zadaných menných priestorov",
+	"safedelete-title": "Zmazať „$1“",
+	"safedelete-missingpagename": "Chýba názov stránky.",
+	"safedelete-missingnamespaces": "Zoznam menných priestorov pre bezpečné mazanie nie je nastavený.",
+	"safedelete-cannotdelete": "Stránku „$1“ nemožno zmazať, pretože na ňu odkazuje alebo ju presmerúva {{PLURAL:$2|nasledujúca stránka|nasledujúce stránky}}:"
+}
